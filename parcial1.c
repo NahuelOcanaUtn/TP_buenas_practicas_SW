@@ -1,10 +1,17 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<string.h>
+
+
+#define MAX_VUELOS_PERMITIDOS 50
+#define TAM_NOMBRE_VUELO 40
+#define TAM_BUSQUEDA 40
+#define OPCION_SALIR 5
+
 struct aviones{
 	int FrecuenciadeRadio;
 	int distancia;
-	char NombreDeVuelo[40];
+	char NombreDeVuelo[TAM_NOMBRE_VUELO];
 };
 
 void cargarVuelos(struct aviones *,int);
