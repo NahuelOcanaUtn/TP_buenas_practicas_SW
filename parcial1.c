@@ -32,15 +32,42 @@ int main(int argc, char *argv[]) {
 	
 	cargarVuelos(vuelos,n);
 	frecuenciasCercanas(vuelos,n);
-	printf("\nquiere volver a introducir aviones?");
-	printf("\n1-si");
-	printf("\n2-no");
+	printf("MENU PRINCIPAL\n");
+	printf("1. Recargar / Volver a ingresar datos de vuelos\n");
+	printf("2. Mostrar todos los vuelos en el radar\n");
+	printf("3. Buscar frecuencias de radio cercanas (con %% de tolerancia)\n");
+	printf("4. Buscar vuelo por nombre / coincidencia de texto (strstr)\n");
+	printf("%d. Salir del programa\n", OPCION_SALIR);
+	printf("Ingrese una opcion: ");
 	printf("\n");
 	scanf("%i",&menu);
-	switch(menu){
-	case 1: cargarVuelos(vuelos,n);
-	default: printf("Hasta luego");
-	}
+	switch (menu) {
+	case 1:
+		cargarVuelos(vuelos, cantidadVuelos);
+		break;
+		
+	case 2:
+		mostrarTodosLosVuelos(vuelos, cantidadVuelos);
+		break;
+		
+	case 3:
+		buscarFrecuenciasCercanas(vuelos, cantidadVuelos);
+		break;
+		
+	case 4:
+		buscarVueloPorNombre(vuelos, cantidadVuelos);
+		break;
+		
+	case OPCION_SALIR:
+		printf("\nLiberando memoria RAM asignada y saliendo del sistema...\n");
+		break;
+		
+	default:
+		printf("[Error]: Opcion invalida. Intente de nuevo.\n");
+		break;
+	} // end switch
+	
+} while (menu != OPCION_SALIR);
 	printf("Que vuelo esta buscando?\n");
 	gets(vueloBuscado);
 	/*for(i=0;i<n;i++){
